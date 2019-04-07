@@ -180,4 +180,7 @@ void Tester::testCircularLinked(CircularLinkedList<T>* list) {
     ++it;
     ++it;
     ASSERT(*it == elements[1], "The " + list->name() + " iterator is not working");
+    --it;
+    --it;
+    ASSERT(*it == elements[4], "The " + list->name() + " iterator is not working");
 }
