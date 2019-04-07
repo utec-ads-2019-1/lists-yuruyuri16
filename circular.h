@@ -56,6 +56,10 @@ class CircularLinkedList : public List<T> {
             // TODO
         }
 
+        string name() {
+            return "Circular Linked List";
+        }
+
         BidirectionalIterator<T> begin() {
             // TODO
         }

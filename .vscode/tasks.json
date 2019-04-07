@@ -9,7 +9,7 @@
             "command": "g++",
             "args": [
                 "-g", "main.cpp", "mock/mocker.cpp", "test/tester.cpp",
-                "-o", "sorts.out"
+                "-o", "lists.out"
             ],
             "group": {
                 "kind": "build",

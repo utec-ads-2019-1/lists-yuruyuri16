@@ -1,7 +1,4 @@
 #include <iostream>
-/*#include "forward.h"
-#include "linked.h"
-#include "circular.h"*/
 #include "test/tester.h"
 
 using namespace std;
