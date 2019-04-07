@@ -9,11 +9,11 @@ class BidirectionalIterator : public Iterator<T> {
         BidirectionalIterator() : Iterator<T>() {};
         BidirectionalIterator(Node<T> *node) : Iterator<T>(node) {};
 
-        BidirectionalIterator<T> operator=(BidirectionalIterator<T>) {
+        BidirectionalIterator<T> operator=(BidirectionalIterator<T> other) {
             // TODO
         }
 
-        bool operator!=(BidirectionalIterator<T>) {
+        bool operator!=(BidirectionalIterator<T> other) {
             // TODO
         }
 

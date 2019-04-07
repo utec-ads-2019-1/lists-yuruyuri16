@@ -1,15 +1,11 @@
 #include "mocker.h"
 
-int Mocker::generateRandomInt() {
-    uniform_int_distribution<mt19937::result_type> distribution(MIN, MAX);
+int Mocker::generateRandomInt(int min) {
+    uniform_int_distribution<mt19937::result_type> distribution(min, MAX);
     return distribution(rng);
 }
 
-int* Mocker::generateRandomIntArray(size_t size) {
-    int *numbers = new int[size];
-    for (int i = 0; i < size; i++) {
-        numbers[i] = generateRandomInt();
-    }
-
-    return numbers;
+char Mocker::generateRandomChar() {
+    int increment = generateRandomInt() % 26;
+    return 'a' + increment;
 }

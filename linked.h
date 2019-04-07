@@ -57,6 +57,10 @@ class LinkedList : public List<T> {
             // TODO
         }
 
+        string name() {
+            return "Linked List";
+        }
+
         BidirectionalIterator<T> begin() {
             // TODO
         }
