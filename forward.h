@@ -104,7 +104,7 @@ public:
     {
         if (!empty())
         {
-            if (this->head == this->tail)
+            if (this->nodes == 1)
             {
                 delete this->head;
                 this->head = nullptr;
@@ -143,6 +143,8 @@ public:
     T operator[](int index)
     {
         Node<T> *current;
+        int i;
+
         if (this->nodes == 0)
         {
             throw std::invalid_argument("List is empty.\n");
@@ -150,7 +152,7 @@ public:
         else if (this->nodes > index && index >= 0)
         {
             current = this->head;
-            int i = 0;
+            i = 0;
             while (i < index)
             {
                 current = current->next;
@@ -166,7 +168,7 @@ public:
 
     bool empty()
     {
-        return this->head == nullptr ? true : false;
+        return (this->head == nullptr ? true : false);
     }
 
     int size()
@@ -184,17 +186,34 @@ public:
 
     void sort()
     {
-        // TODO
+        if (this->nodes > 1)
+        {
+            //TODO
+        }
     }
 
     void reverse()
     {
-        // TODO
+        Node<T> *temp;
+        Node<T> *current;
+
+        temp = this->head;
+        this->head = this->tail;
+        this->tail = temp;
+
+        current = this->head;
+        while (current != nullptr)
+        {
+            temp = current->next;
+            current->next = current->prev;
+            current->prev = temp;
+            current = current->next;
+        }
     }
 
     std::string name()
     {
-        return "Forward List";
+        return ("Forward List");
     }
 
     ForwardIterator<T> begin()
