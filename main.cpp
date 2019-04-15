@@ -2,13 +2,11 @@
 #include "test/tester.h"
 #include "forward.h"
 
-using namespace std;
-
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-    cout << "===========================================================" << endl;
-    cout << "\tLists Practice" << endl;
-    cout << "===========================================================" << endl
+    std::cout << "===========================================================" << endl;
+    std::cout << "\tLists Practice" << endl;
+    std::cout << "===========================================================" << endl
          << endl;
 
     // Tester::execute();
@@ -21,6 +19,12 @@ int main(int argc, char *argv[])
     l1.push_back(4);
     l.merge(l1);
     l.print();
-    l.print_reverse();
-    return EXIT_SUCCESS;
+    l.reverse();
+    l.print();
+
+    ForwardList<int> l2;
+    l2.push_back(123);
+    l2.reverse();
+    l2.print();
+    return (0);
 }
