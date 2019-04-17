@@ -23,6 +23,18 @@ class LinkedList : public List<T> {
             return (this->tail->data);
         }
 
+        void print()
+        {
+            NodePointer current;
+
+            current = this->head;
+            while (current != nullptr)
+            {
+                std::cout << current->data << '\n';
+                current = current->next;
+            }
+        }
+
         void push_front(T value) {
             NodePointer newNode;
 
@@ -173,17 +185,14 @@ class LinkedList : public List<T> {
         }
 
         void merge(LinkedList<T> list) {
-            if (empty())
+            if (!list.empty())
             {
-                if (!empty())
+                if (empty())
                 {
                     this->head = list.head;
                     this->tail = list.tail;
                 }
-            }
-            else
-            {
-                if (!list.empty())
+                else
                 {
                     this->tail->next = list.head;
                     this->tail = list.tail;

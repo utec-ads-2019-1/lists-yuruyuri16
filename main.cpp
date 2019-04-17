@@ -12,11 +12,24 @@ int main(int argc, char **argv)
          << endl;
 
     // Tester::execute();
-    ForwardList<int> l;
-    l.push_front(10);
-    l.push_front(3);
+    
+    LinkedList<int> l1, l2;
+    l1.push_back(1);
+    l1.push_back(2);
 
-    l.print();
+    l2.push_back(3);
+    l2.push_back(4);
+    l1.merge(l2);
+
+    l1.print();
+    //ForwardList<int> l1, l2;
+
+    //l1.push_back(3);
+    //l1.push_back(4);
+
+    //l1.merge(l2);
+
+    //.l1.print();
 
     return (0);
 }
