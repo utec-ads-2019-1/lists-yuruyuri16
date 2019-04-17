@@ -14,8 +14,9 @@ int main(int argc, char **argv)
     // Tester::execute();
     ForwardList<int> l;
     l.push_front(10);
+    l.push_front(3);
 
-    std::cout << l.front() << '\n';
+    l.print();
 
     return (0);
 }

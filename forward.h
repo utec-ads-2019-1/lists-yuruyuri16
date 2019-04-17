@@ -22,6 +22,18 @@ public:
         return this->tail->data;
     }
 
+    void print()
+    {
+        NodePointer current;
+
+        current = this->head;
+        while (current != nullptr)
+        {
+            std::cout << current->data << '\n';
+            current = current->next;
+        }
+    }
+
     void push_front(T value)
     {
         NodePointer newNode;
@@ -39,7 +51,24 @@ public:
 
     void push_back(T value)
     {
-        // TODO
+        NodePointer last_node;
+        if (empty())
+        {
+            this->head = new Node<T>{value, nullptr. nullptr};
+        }
+        else
+        {
+            last_node = get_last_node();
+            last_node->next = new Node<T>{value, nullptr, nullptr};
+        }
+    }
+
+    NodePointer get_last_node()
+    {
+        NodePointer current;
+        
+        current = this->head;
+        while (current->)
     }
 
     void pop_front()
