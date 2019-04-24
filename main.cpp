@@ -13,21 +13,27 @@ int main(int argc, char **argv)
 			  << endl;
 
 	Tester::execute();
-	/*LinkedList<int> l1, l2;
+	/*
+	CircularLinkedList<int> l1, l2;
 	l1.push_back(10);
-	l1.push_back(20);
-	l1.push_back(30);
-	l1.push_back(40);
+	l1.push_back(2);
+	l1.push_back(121);
+	l1.push_back(100);
 
 	for (auto it = l1.begin(); it != l1.end(); ++it)
 	{
 		std::cout << *it << '\n';
 	}
+
 	l1.reverse();
 	for (auto it = l1.begin(); it != l1.end(); ++it)
 	{
 		std::cout << *it << '\n';
 	}
-*/
+	for (int i = 0; i < 10; ++i)
+	{
+		std::cout << l1[i] << '\n';
+	}
+	*/
 	return (0);
 }

@@ -161,7 +161,26 @@ public:
 
 	void reverse()
 	{
-		// TODO
+		NodePointer temp;
+		NodePointer current;
+
+		this->head->prev = nullptr;
+		this->tail->next = nullptr;
+
+		temp = this->head;
+		this->head = this->tail;
+		this->tail = temp;
+
+		current = this->head;
+		while (current != nullptr)
+		{
+			temp = current->next;
+			current->next =current->prev;
+			current->prev = temp;
+			current = current->next;
+		}
+		this->head->prev = this->tail;
+		this->tail->next = this->head;
 	}
 
 	std::string name()
@@ -171,12 +190,17 @@ public:
 
 	BidirectionalIterator<T> begin()
 	{
-		return BidirectionalIterator<T>(this->head);
+		NodePointer clone;
+
+		clone = new Node<T>();
+		clone->next = this->head->next;
+		clone->data = this->head->data;
+		return BidirectionalIterator<T>(clone);
 	}
 
 	BidirectionalIterator<T> end()
 	{
-		return BidirectionalIterator<T>(this->head);
+		return BidirectionalIterator<T>(this->tail->next);
 	}
 
 	void merge(CircularLinkedList<T> list)

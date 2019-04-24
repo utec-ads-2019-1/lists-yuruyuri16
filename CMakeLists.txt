@@ -9,4 +9,6 @@ file(GLOB src
 	"*.cpp"
 	"*/*.cpp")
 
+set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES "CMakeCache.txt" "CMakeFiles/" "Makefile" "cmake_install.cmake" "compile_commands.json")
+
 add_executable(lists ${src})

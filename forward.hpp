@@ -187,7 +187,10 @@ public:
 
     void sort()
     {
-        // TODO
+		if (this->nodes > 1)
+		{
+			//
+		}
     }
 
     void reverse()
