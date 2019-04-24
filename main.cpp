@@ -1,35 +1,33 @@
 #include <iostream>
-#include "test/tester.h"
+#include "test/tester.hpp"
 
-#include "linked.h"
-#include "forward.h"
+#include "linked.hpp"
+#include "forward.hpp"
+#include "circular.hpp"
 
 int main(int argc, char **argv)
 {
-    std::cout << "===========================================================" << endl;
-    std::cout << "\tLists Practice" << endl;
-    std::cout << "===========================================================" << endl
-         << endl;
+	std::cout << "===========================================================" << endl;
+	std::cout << "\tLists Practice" << endl;
+	std::cout << "===========================================================" << endl
+			  << endl;
 
-    // Tester::execute();
-    
-    LinkedList<int> l1, l2;
-    l1.push_back(1);
-    l1.push_back(2);
+	Tester::execute();
+	/*LinkedList<int> l1, l2;
+	l1.push_back(10);
+	l1.push_back(20);
+	l1.push_back(30);
+	l1.push_back(40);
 
-    l2.push_back(3);
-    l2.push_back(4);
-    l1.merge(l2);
-
-    l1.print();
-    //ForwardList<int> l1, l2;
-
-    //l1.push_back(3);
-    //l1.push_back(4);
-
-    //l1.merge(l2);
-
-    //.l1.print();
-
-    return (0);
+	for (auto it = l1.begin(); it != l1.end(); ++it)
+	{
+		std::cout << *it << '\n';
+	}
+	l1.reverse();
+	for (auto it = l1.begin(); it != l1.end(); ++it)
+	{
+		std::cout << *it << '\n';
+	}
+*/
+	return (0);
 }

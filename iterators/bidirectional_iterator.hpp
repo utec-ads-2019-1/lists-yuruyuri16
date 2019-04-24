@@ -1,7 +1,7 @@
 #ifndef BIDIRECTIONAL_ITERATOR_H
 #define BIDIRECTIONAL_ITERATOR_H
 
-#include "../iterator.h"
+#include "../iterator.hpp"
 
 template <typename T> 
 class BidirectionalIterator : public Iterator<T> {
@@ -10,23 +10,26 @@ class BidirectionalIterator : public Iterator<T> {
         BidirectionalIterator(Node<T> *node) : Iterator<T>(node) {};
 
         BidirectionalIterator<T> operator=(BidirectionalIterator<T> other) {
-            // TODO
+			this->current = other.current;
+			return (this->current);
         }
 
         bool operator!=(BidirectionalIterator<T> other) {
-            // TODO
+			return (this->current != other.current);
         }
 
         BidirectionalIterator<T> operator++() {
-            // TODO
+			this->current = this->current->next;
+			return (this->current);
         }
 
         BidirectionalIterator<T> operator--() {
-            // TODO
+			this->current = this->current->prev;
+			return (this->current);
         }
 
         T operator*() {
-            // TODO
+			return (this->current->data);
         }
 };
 

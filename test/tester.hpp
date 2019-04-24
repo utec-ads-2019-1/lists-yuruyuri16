@@ -5,10 +5,10 @@
 #include <iostream>
 #include <assert.h>
 
-#include "../mock/mocker.h"
-#include "../forward.h"
-#include "../linked.h"
-#include "../circular.h"
+#include "../mock/mocker.hpp"
+#include "../forward.hpp"
+#include "../linked.hpp"
+#include "../circular.hpp"
 
 using namespace std;
 

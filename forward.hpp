@@ -1,15 +1,40 @@
 #ifndef FORWARD_H
 #define FORWARD_H
 
-#include "list.h"
-#include "iterators/forward_iterator.h"
+#include "list.hpp"
+#include "iterators/forward_iterator.hpp"
 #include <iostream>
 
 template <typename T>
 class ForwardList : public List<T>
 {
-    private:
-        typedef Node<T>* NodePointer;
+private:
+    typedef Node<T> *NodePointer;
+
+    NodePointer get_last_node()
+    {
+        NodePointer current;
+
+        current = this->head;
+        while (current->next != nullptr)
+        {
+            current = current->next;
+        }
+        return (current);
+    }
+
+    NodePointer get_penultimate_node()
+    {
+        NodePointer current;
+
+        current = this->head;
+        while (current->next->next != nullptr)
+        {
+            current = current->next;
+        }
+        return (current);
+    }
+
 public:
     ForwardList() : List<T>() {}
 
@@ -20,7 +45,10 @@ public:
 
     T back()
     {
-        return this->tail->data;
+        NodePointer last_node;
+
+        last_node = get_last_node();
+        return last_node->data;
     }
 
     void print()
@@ -30,7 +58,7 @@ public:
         if (empty())
         {
             std::cout << "Empty list.\n";
-            return ;
+            return;
         }
 
         current = this->head;
@@ -47,7 +75,8 @@ public:
 
         if (empty())
         {
-            this->head = new Node<T>{value, nullptr, nullptr};
+            newNode = new Node<T>{value, nullptr, nullptr};
+            this->head = newNode;
         }
         else
         {
@@ -60,28 +89,21 @@ public:
     void push_back(T value)
     {
         NodePointer last_node;
+        NodePointer newNode;
+
         if (empty())
         {
-            this->head = new Node<T>{value, nullptr, nullptr};
+
+            newNode = new Node<T>{value, nullptr, nullptr};
+            this->head = newNode;
         }
         else
         {
             last_node = get_last_node();
-            last_node->next = new Node<T>{value, nullptr, nullptr};
+            newNode = new Node<T>{value, nullptr, nullptr};
+            last_node->next = newNode;
         }
         this->nodes++;
-    }
-
-    NodePointer get_last_node()
-    {
-        NodePointer current;
-        
-        current = this->head;
-        while (current->next != nullptr)
-        {
-            current = current->next;
-        }
-        return (current);
     }
 
     void pop_front()
@@ -117,18 +139,6 @@ public:
             }
         }
         this->nodes--;
-    }
-
-    NodePointer get_penultimate_node()
-    {
-        NodePointer current;
-
-        current = this->head;
-        while (current->next->next != nullptr)
-        {
-            current = current->next;
-        }
-        return (current);
     }
 
     T operator[](int index)
@@ -182,7 +192,21 @@ public:
 
     void reverse()
     {
-        // TODO
+		NodePointer previous;
+		NodePointer current;
+		NodePointer next;
+
+		previous = nullptr;
+		current = this->head;
+		next = nullptr;
+		while (current != nullptr)
+		{
+			next = current->next;
+			current->next = previous;
+			previous = current;
+			current = next;
+		}
+		this->head = previous;
     }
 
     std::string name()
@@ -192,12 +216,12 @@ public:
 
     ForwardIterator<T> begin()
     {
-        // TODO
+		return (ForwardIterator<T>(this->head));
     }
 
     ForwardIterator<T> end()
     {
-        // TODO
+		return (ForwardIterator<T>(get_last_node()->next));
     }
 
     void merge(ForwardList<T> list)

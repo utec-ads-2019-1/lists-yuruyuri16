@@ -1,7 +1,7 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-#include "node.h"
+#include "node.hpp"
 
 template <typename T> 
 class Iterator {

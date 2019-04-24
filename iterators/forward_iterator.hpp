@@ -1,7 +1,7 @@
 #ifndef FORWARD_ITERATOR_H
 #define FORWARD_ITERATOR_H
 
-#include "../iterator.h"
+#include "../iterator.hpp"
 
 template <typename T> 
 class ForwardIterator : public Iterator<T> {
@@ -10,19 +10,21 @@ class ForwardIterator : public Iterator<T> {
         ForwardIterator(Node<T> *node) : Iterator<T>(node) {};
 
         ForwardIterator<T> operator=(ForwardIterator<T> other) {
-            // TODO
+			this->current = other.current;
+			return (this->current);
         }
 
         bool operator!=(ForwardIterator<T> other) {
-            // TODO
+			return (this->current != other.current);
         }
 
         ForwardIterator<T> operator++() {
-            // TODO
+			this->current = this->current->next;
+			return (this->current);
         }
 
         T operator*() {
-            // TODO
+			return (this->current->data);
         }
 };
 
