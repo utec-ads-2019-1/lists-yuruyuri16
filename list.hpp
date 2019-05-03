@@ -31,6 +31,7 @@ class List
 
     ~List()
     {
+      // Falta constructor
         // TODO
     }
 };

@@ -40,13 +40,14 @@ public:
 
     T front()
     {
+        // Controlar cuando la lista está vacía
         return this->head->data;
     }
 
     T back()
     {
         NodePointer last_node;
-
+// Controlar cuando la lista está vacía
         last_node = get_last_node();
         return last_node->data;
     }
@@ -169,6 +170,7 @@ public:
 
     bool empty()
     {
+        // Bastaría return this->head == nullptr;
         return (this->head == nullptr ? true : false);
     }
 
